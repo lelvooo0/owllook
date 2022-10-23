@@ -4,9 +4,6 @@ import logging
 
 from .rules import *
 
-# os.environ['MODE'] = 'PRO'
-
-
 logging_format = "[%(asctime)s] %(process)d-%(levelname)s "
 logging_format += "%(module)s::%(funcName)s():l%(lineno)d: "
 logging_format += "%(message)s"
@@ -23,6 +20,7 @@ def load_config():
     Load a config class
     """
 
+    os.environ['MODE'] = 'PRO'
     mode = os.environ.get('MODE', 'DEV')
     LOGGER.info('owllook 启动模式：{}'.format(mode))
     try:
